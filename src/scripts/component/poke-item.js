@@ -1,26 +1,36 @@
 class PokeItem extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowDOM = this.attachShadow({
-            mode: 'open'
-        });
-    };
-
-    set item(item) {
+  set item(item) {
         this._item = item;
         this.render();
     };
 
     render() {
-        this._shadowDOM.innerHTML = `
+        this.innerHTML = `
+        <style>
+            .container {
+                text-align: center;
+                max-width: 500px;
+                margin: 25px auto;
+                margin-bottom: 50px;
+            }
+
+            .container img {
+                padding: 5px;
+                max-width: 350px;
+            }
+        </style>
+
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">${this._item.name}</h3>
+                    <h3 class="card-title">
+                    ${this._item.name.toUpperCase()}
+                    </h3>
                 </div>
+
                 <div class="card-body">
                     <div class="row-group">
-                        <img src="" alt="">
+                    <img src="https://pokeres.bastionbot.org/images/pokemon/${this._item.id}.png" alt="">
                     </div>
                     <div class="row-group">
                         <p id="pokeDesc">${this._item.id}</p>

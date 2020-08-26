@@ -1,24 +1,13 @@
 import './poke-item.js';
 
 class PokeList extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowDOM = this.attachShadow({
-            mode: 'open'
-        });
-    };
-
-    connectedCallback() {
-        this.class = this.getAttribute("id") || null;
-    };
-
-    set poke(poke) {
+     set poke(poke) {
         this._poke = poke;
         this.render();
     };
 
     renderError(message) {
-        this._shadowDOM.innerHTML = `
+        this.innerHTML = `
         <style>
             *{
                 text-align:center;
@@ -28,17 +17,19 @@ class PokeList extends HTMLElement {
                 color: rgba(0, 0, 0, 0.5);
                 user-select: none;
         }
-        </style>`;
-        this._shadowDOM.innerHTML += `<h2>${message}</h2>`;
+        </style>
+        `;
+        this.innerHTML += `<h2>${message}</h2>`;
     };
 
     render() {
-        this._shadowDOM.innerHTML = "";
-        this._poke.forEach(item => {
-            const itemElement = document.createElement("poke-item");
-            itemElement.item = item;
-            this._shadowDOM.appendChild(itemElement);
-        });
+        this.innerHTML = "";
+        this._poke
+        console.log(`poke`,
+            this._poke.abilities)
+        const itemElement = document.createElement("poke-item");
+        itemElement.item = { id: this._poke.id, name: this._poke.name }
+        this.appendChild(itemElement);
     };
 };
 

@@ -6,12 +6,6 @@ class SearchBar extends HTMLElement {
         });
     };
 
-    connectedCallback() {
-        this.id = this.getAttribute("id") || null;
-        this.class = this.getAttribute("class") || null;
-        this.render();
-    };
-
     set clickEvent(event) {
         this._clickEvent = event;
         this.render();
@@ -75,19 +69,21 @@ class SearchBar extends HTMLElement {
                 border: 0;
                 text-transform: uppercase;
             }
-
         </style>
 
         <div id="search-container" class="search-container">
-           <input value="bulbasaur" placeholder="Search Pokemon Name" id="searchElement" type="search">
+           <input placeholder="Search Pokemon Name" id="searchElement" type="search">
             <button id="searchButtonElement" type="submit">Search</button>
         </div>
         `;
         this._shadowRoot.querySelector("#searchButtonElement")
             .addEventListener("click", this._clickEvent);
         this._shadowRoot.querySelector("#searchElement")
-            .addEventListener("keyup", this._clickEvent);
-
+            .addEventListener("keyup", (e) => {
+                if (e.code === "Enter") {
+                    this._clickEvent(e)
+                }
+            });
     };
 };
 
