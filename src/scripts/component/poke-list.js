@@ -1,34 +1,63 @@
 import './poke-item.js';
 
 class PokeList extends HTMLElement {
-     set poke(poke) {
+    set poke(poke) {
         this._poke = poke;
         this.render();
     };
 
-    renderError(message) {
+    renderError(e) {
+        const keyword = document.querySelector("search-widget").value;
         this.innerHTML = `
         <style>
-            *{
-                text-align:center;
-                font-size:15px;
+            .container {
+                position: fixed;
+                text-align: center;
+                max-width: 540px;
+                margin: 5% auto;
+                left: 0;
+                right: 0;
             }
-            h2 {
+            .card{
+                padding:0;
+                border-radius:25px;
+            }
+            .card-header:first-child {
+                border-radius: 25px 25px 0 0;
+            }
+            h3,p {
+                padding-top:20px;
                 color: rgba(0, 0, 0, 0.5);
                 user-select: none;
-        }
+                text-align:center;
+            }
         </style>
         `;
-        this.innerHTML += `<h2>${message}</h2>`;
+        this.innerHTML += `
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Googling Pokemon Names !</h3>
+                    <p>${keyword} is not found !</p>
+                    <p>Example : Pikachu</p>
+                </div>
+            </div>
+        </div>
+        `;
     };
 
     render() {
         this.innerHTML = "";
-        this._poke
-        console.log(`poke`,
-            this._poke.abilities)
+        // this._poke;
+        // console.log(this._poke)
         const itemElement = document.createElement("poke-item");
-        itemElement.item = { id: this._poke.id, name: this._poke.name }
+        itemElement.item = {
+            id: this._poke.id,
+            name: this._poke.name,
+            skill_1: this._poke.abilities[0].ability.name,
+            skill_2: this._poke.abilities[1].ability.name,
+            sprites: this._poke.sprites.front_default
+        }
         this.appendChild(itemElement);
     };
 };

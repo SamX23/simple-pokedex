@@ -1,5 +1,5 @@
 class PokeItem extends HTMLElement {
-  set item(item) {
+    set item(item) {
         this._item = item;
         this.render();
     };
@@ -9,14 +9,41 @@ class PokeItem extends HTMLElement {
         <style>
             .container {
                 text-align: center;
-                max-width: 500px;
-                margin: 25px auto;
+                max-width: 540px;
+                margin: 10% auto;
+
                 margin-bottom: 50px;
             }
+            
 
             .container img {
                 padding: 5px;
                 max-width: 350px;
+            }
+
+            .table td {
+                padding: 0px;
+            }
+
+            .table td>img {
+                padding: 0px;
+            }
+
+            .card{
+                padding:0;
+                border-radius:25px;
+            }
+
+            .card-body{
+                padding:2px;
+            }
+
+            .card-header:first-child {
+                border-radius: 25px 25px 0 0;
+            }
+
+            .card-title{
+                margin:0;
             }
         </style>
 
@@ -30,11 +57,27 @@ class PokeItem extends HTMLElement {
 
                 <div class="card-body">
                     <div class="row-group">
-                    <img src="https://pokeres.bastionbot.org/images/pokemon/${this._item.id}.png" alt="">
+                        <img src="https://pokeres.bastionbot.org/images/pokemon/${this._item.id}.png" alt="pokemon">
                     </div>
-                    <div class="row-group">
-                        <p id="pokeDesc">${this._item.id}</p>
-                    </div>
+                    
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">1# Skills</th>
+                                <th scope="col">2# Skills</th>
+                                <th scope="col">Sprite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="align-middle">${this._item.id}</th>
+                                <td class="align-middle">${this._item.skill_1}</td>
+                                <td class="align-middle">${this._item.skill_2}</td>
+                                <td class="slim"><img src="${this._item.sprites}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

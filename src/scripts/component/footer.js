@@ -15,21 +15,18 @@ class FootBar extends HTMLElement {
     render() {
         this._shadowRoot.innerHTML = `
         <style>
-            * {
-                margin: 0;
-                padding: 0;
+            *{
                 box-sizing: border-box;
             }
-           :host {
-                font-weight: bold;
+            :host{
+                max-width: 700px;
                 position: fixed;
                 bottom: 0;
                 text-align: center;
                 width: 100%;
-                height: 35px;
                 background: rgb(0, 139, 253);
                 border-radius: 50px 50px 0 0;
-                border-top: 3px solid rgba(48, 200, 214);
+                border: 3px solid rgba(48, 200, 214);
                 animation: lineRGB 6s linear 1s infinite alternate;
             }
         </style>
