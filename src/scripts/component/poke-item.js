@@ -1,21 +1,12 @@
 class PokeItem extends HTMLElement {
-    set item(item) {
-        this._item = item;
-        this.render();
-    };
+  set item(item) {
+    this._item = item;
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <style>
-            .container {
-                text-align: center;
-                max-width: 540px;
-                margin: 10% auto;
-
-                margin-bottom: 50px;
-            }
-            
-
             .container img {
                 padding: 5px;
                 max-width: 350px;
@@ -44,20 +35,23 @@ class PokeItem extends HTMLElement {
 
             .card-title{
                 margin:0;
+                font-weight:bolder;
             }
         </style>
 
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
+                    <h2 class="card-title">
                     ${this._item.name.toUpperCase()}
-                    </h3>
+                    </h2>
                 </div>
 
                 <div class="card-body">
                     <div class="row-group">
-                        <img src="https://pokeres.bastionbot.org/images/pokemon/${this._item.id}.png" alt="pokemon">
+                        <img src="https://pokeres.bastionbot.org/images/pokemon/${
+                          this._item.id
+                        }.png" alt="pokemon">
                     </div>
                     
                     <table class="table">
@@ -72,9 +66,15 @@ class PokeItem extends HTMLElement {
                         <tbody>
                             <tr>
                                 <th class="align-middle">${this._item.id}</th>
-                                <td class="align-middle">${this._item.skill_1}</td>
-                                <td class="align-middle">${this._item.skill_2}</td>
-                                <td class="slim"><img src="${this._item.sprites}"></td>
+                                <td class="align-middle">${
+                                  this._item.skill_1
+                                }</td>
+                                <td class="align-middle">${
+                                  this._item.skill_2
+                                }</td>
+                                <td class="slim"><img src="${
+                                  this._item.sprites
+                                }"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -82,7 +82,7 @@ class PokeItem extends HTMLElement {
             </div>
         </div>
         `;
-    };
-};
+  }
+}
 
 customElements.define("poke-item", PokeItem);

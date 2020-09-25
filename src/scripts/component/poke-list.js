@@ -1,28 +1,20 @@
-import './poke-item.js';
+import "./poke-item.js";
 
 class PokeList extends HTMLElement {
-    set poke(poke) {
-        this._poke = poke;
-        this.render();
-    };
+  set poke(poke) {
+    this._poke = poke;
+    this.render();
+  }
 
-    renderError(e) {
-        const keyword = document.querySelector("search-widget").value;
-        this.innerHTML = `
+  renderError(e) {
+    const keyword = document.querySelector("search-widget").value;
+    this.innerHTML = `
         <style>
-            .container {
-                position: fixed;
-                text-align: center;
-                max-width: 540px;
-                margin: 5% auto;
-                left: 0;
-                right: 0;
-            }
             .card{
                 padding:0;
                 border-radius:25px;
             }
-            .card-header:first-child {
+            .card-header {
                 border-radius: 25px 25px 0 0;
             }
             h3,p {
@@ -32,8 +24,6 @@ class PokeList extends HTMLElement {
                 text-align:center;
             }
         </style>
-        `;
-        this.innerHTML += `
         <div class="container">
             <div class="card">
                 <div class="card-header">
@@ -44,22 +34,20 @@ class PokeList extends HTMLElement {
             </div>
         </div>
         `;
-    };
+  }
 
-    render() {
-        this.innerHTML = "";
-        // this._poke;
-        // console.log(this._poke)
-        const itemElement = document.createElement("poke-item");
-        itemElement.item = {
-            id: this._poke.id,
-            name: this._poke.name,
-            skill_1: this._poke.abilities[0].ability.name,
-            skill_2: this._poke.abilities[1].ability.name,
-            sprites: this._poke.sprites.front_default
-        }
-        this.appendChild(itemElement);
+  render() {
+    this.innerHTML = "";
+    const itemElement = document.createElement("poke-item");
+    itemElement.item = {
+      id: this._poke.id,
+      name: this._poke.name,
+      skill_1: this._poke.abilities[0].ability.name,
+      skill_2: this._poke.abilities[1].ability.name,
+      sprites: this._poke.sprites.front_default,
     };
-};
+    this.appendChild(itemElement);
+  }
+}
 
 customElements.define("poke-list", PokeList);

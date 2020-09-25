@@ -1,22 +1,22 @@
 class SearchBar extends HTMLElement {
-    constructor() {
-        super()
-        this._shadowRoot = this.attachShadow({
-            mode: 'open'
-        });
-    };
+  constructor() {
+    super();
+    this._shadowRoot = this.attachShadow({
+      mode: "open",
+    });
+  }
 
-    set clickEvent(event) {
-        this._clickEvent = event;
-        this.render();
-    };
+  set clickEvent(event) {
+    this._clickEvent = event;
+    this.render();
+  }
 
-    get value() {
-        return this._shadowRoot.querySelector("#searchElement").value;
-    };
+  get value() {
+    return this._shadowRoot.querySelector("#searchElement").value;
+  }
 
-    render() {
-        this._shadowRoot.innerHTML = `
+  render() {
+    this._shadowRoot.innerHTML = `
         <style>
             * {
                 margin: 0;
@@ -76,15 +76,17 @@ class SearchBar extends HTMLElement {
             <button id="searchButtonElement" type="submit">Search</button>
         </div>
         `;
-        this._shadowRoot.querySelector("#searchButtonElement")
-            .addEventListener("click", this._clickEvent);
-        this._shadowRoot.querySelector("#searchElement")
-            .addEventListener("keyup", (e) => {
-                if (e.code === "Enter") {
-                    this._clickEvent(e)
-                }
-            });
-    };
-};
+    this._shadowRoot
+      .querySelector("#searchButtonElement")
+      .addEventListener("click", this._clickEvent);
+    this._shadowRoot
+      .querySelector("#searchElement")
+      .addEventListener("keyup", (e) => {
+        if (e.code === "Enter") {
+          this._clickEvent(e);
+        }
+      });
+  }
+}
 
-customElements.define('search-widget', SearchBar);
+customElements.define("search-widget", SearchBar);

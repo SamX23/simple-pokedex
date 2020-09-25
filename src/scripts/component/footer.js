@@ -1,19 +1,19 @@
-class FootBar extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({
-            mode: 'open'
-        });
-    };
+class FooterBar extends HTMLElement {
+  constructor() {
+    super();
+    this._shadowRoot = this.attachShadow({
+      mode: "open",
+    });
+  }
 
-    connectedCallback() {
-        this.id = this.getAttribute("id") || null;
-        this.class = this.getAttribute("class") || null;
-        this.render();
-    };
+  connectedCallback() {
+    this.id = this.getAttribute("id") || null;
+    this.class = this.getAttribute("class") || null;
+    this.render();
+  }
 
-    render() {
-        this._shadowRoot.innerHTML = `
+  render() {
+    this._shadowRoot.innerHTML = `
         <style>
             *{
                 box-sizing: border-box;
@@ -32,7 +32,7 @@ class FootBar extends HTMLElement {
         </style>
         <p>Copyright &COPY; 2020 - Made with ❤️ by Sami Kalammallah</p>
         `;
-    };
-};
+  }
+}
 
-customElements.define("foo-ter", FootBar);
+customElements.define("footer-bar", FooterBar);
