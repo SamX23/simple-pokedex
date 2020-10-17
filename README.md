@@ -1,9 +1,30 @@
-# DICODING FRONT END PEMULA SUBMISSION
+# I'm overhauled my pokedex app using next js
 
-## Kriteria Submission
+- Deployed version will interupted
+- You can still checking the previues version (using webpack) in this [File]("https://github.com/SamX23/simple-pokedex/simple-pokedex-webpack.zip")
 
-- ES6
-- Terdapat minimal satu penerapan custom element
-- Menggunakan Webpack sebagai module bundler.
-- Memanfaatkan Webpack sebagai environment dalam pengembangan proyek.
-- Memanfaatkan API dengan menggunakan konsep AJAX.
+-------------------------------------------------------
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
