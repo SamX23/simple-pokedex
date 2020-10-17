@@ -1,7 +1,7 @@
 # I'm overhauled my pokedex app using next js
 
 - Deployed version will interupted
-- You can still checking the previues version (using webpack) in this [File]("https://github.com/SamX23/simple-pokedex/simple-pokedex-webpack.zip")
+- You can still checking the previues version (using webpack) in this [Repo]("https://github.com/SamX23/pokedex-dicoding")
 
 -------------------------------------------------------
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
