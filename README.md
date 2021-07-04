@@ -1,4 +1,4 @@
-# I'm overhauled my pokedex app using next js
+# I'm overhauled my pokedex app using next js (STOPPED DEVELOPMENT)
 
 - Deployed version will interupted
 - You can still checking the previues version (using webpack) in this [Repo]("https://github.com/SamX23/pokedex-dicoding")
